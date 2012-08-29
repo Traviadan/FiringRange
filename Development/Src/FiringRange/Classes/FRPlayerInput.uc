@@ -1,0 +1,38 @@
+/**
+ *
+ * Notes: 
+ *
+*/
+
+class FRPlayerInput extends PlayerInput within FRPlayerController
+	config(Input);
+
+/** crouch */
+simulated exec function Duck()
+{
+		if(bDuck == 0) bDuck = 1;
+}
+
+/** uncrouch */
+simulated exec function UnDuck()
+{
+		if(bDuck == 1) bDuck = 0;
+}
+
+/** change stance */
+simulated exec function ChangeStance()
+{
+		if(bDuck == 0)
+		{
+			Duck();
+		}
+		else
+		{
+			UnDuck();
+		}
+}
+
+defaultproperties
+{
+	bEnableFOVScaling = true
+}
